@@ -91,11 +91,14 @@ $(function () {
          */
         let container = document.querySelector(".feed");
         beforeEach(function (done) {
-            loadFeed(0);
-            done();
+            loadFeed(0, function () {
+                done();
+            });
+
         });
         it("should have at least one entry element within the feed container", function (done) {
-            let entries = container.querySelectorAll(".inner");
+            let entries = container.querySelectorAll(".entry");
+            console.log(entries);
             expect(entries).toBeDefined();
             done();
         });
@@ -107,7 +110,22 @@ $(function () {
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
-        
+        let entry1, entry2;
+        let container = document.querySelector(".feed");
+        // entry1=document.querySelector("entry").childNodes[0].textContent;
+        beforeEach(function (done) {
+            loadFeed(1, function () {
+                done();
+            });
+            entry1 = container.querySelector(".entry");
+        });
+
+        it("should change the content", function (done) {
+            entry2 = container.querySelector(".entry");
+            expect(entry1.textContent).not.toBe(entry2.textContent);
+            done();
+        });
+
     });
 
 }());
