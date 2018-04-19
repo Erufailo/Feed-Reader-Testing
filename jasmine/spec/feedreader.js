@@ -98,7 +98,6 @@ $(function () {
         });
         it("should have at least one entry element within the feed container", function (done) {
             let entries = container.querySelectorAll(".entry");
-            console.log(entries);
             expect(entries).toBeDefined();
             done();
         });
@@ -112,7 +111,6 @@ $(function () {
          */
         let entry1, entry2;
         const container = document.querySelector(".feed");
-        // entry1=document.querySelector("entry").childNodes[0].textContent;
         beforeEach(function (done) {
             loadFeed(1, function () {
                 done();
