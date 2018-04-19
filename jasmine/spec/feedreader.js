@@ -111,7 +111,7 @@ $(function () {
          * Remember, loadFeed() is asynchronous.
          */
         let entry1, entry2;
-        let container = document.querySelector(".feed");
+        const container = document.querySelector(".feed");
         // entry1=document.querySelector("entry").childNodes[0].textContent;
         beforeEach(function (done) {
             loadFeed(1, function () {
