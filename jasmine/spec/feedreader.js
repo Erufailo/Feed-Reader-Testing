@@ -112,10 +112,13 @@ $(function () {
         let entry1, entry2;
         const container = document.querySelector(".feed");
         beforeEach(function (done) {
-            loadFeed(1, function () {
-                done();
+            loadFeed(0, function () {
+                loadFeed(1, function () {
+                    done();
+                });
+                entry1 = container.querySelector(".entry");
             });
-            entry1 = container.querySelector(".entry");
+
         });
 
         it("should change the content", function (done) {
